@@ -156,6 +156,24 @@ public class SoftwareModule extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MsActionPerformed
     private void fillcoursework(){
+        String hes = ISD.getText();
+        String sql=("Select Grade from app.Coursework WHERE StudentID = '" + hes + "'");
+        try{
+            Connection con= (Connection) DriverManager.getConnection("jdbc:derby://localhost:1527/ECS","Zino","zino1234");
+/*As we are creating a connection on a local computer we will write the url as jdbc:mysql://localhost:3306 */
+            Statement stmt=con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            String user=ISD.getText();
+            while(rs.next()) {
+                String uname=rs.getString("Grade");
+                //Username is the coloumn name in the database 
+                    Sub.setText(uname);
+            }
+            
+    }
+            catch (Exception e){
+                   JOptionPane.showMessageDialog(this, e.getMessage());
+            }
         
             }
         
