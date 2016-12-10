@@ -157,6 +157,22 @@ public class Logic extends javax.swing.JFrame {
     }//GEN-LAST:event_MoActionPerformed
 
      private void fills(){
+         String STR = SIDS.getText();
+         String sql=("Select Grade from app.Coursework WHERE StudentID = '" + STR + "'");
+         try{
+            Connection con= (Connection) DriverManager.getConnection("jdbc:derby://localhost:1527/ECS","Zino","zino1234");
+/*As we are creating a connection on a local computer we will write the url as jdbc:mysql://localhost:3306 */
+            Statement stmt=con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()) {
+                String uname=rs.getString("Grade");
+                //Username is the coloumn name in the database 
+                    Sow.setText(uname);
+            }
+         }
+         catch (Exception e){
+                   JOptionPane.showMessageDialog(this, e.getMessage());
+            }
          
      }
     private void logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logActionPerformed
