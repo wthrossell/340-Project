@@ -147,7 +147,20 @@ public class Module extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutbtnActionPerformed
 
     private void fillcombo(){
-      
+        String wol = StudentI.getText();
+        String sql = "select * from app.Coursework WHERE StudentID = '" + wol + "'";
+        try{
+            Connection con= (Connection) DriverManager.getConnection("jdbc:derby://localhost:1527/ECS","Zino","zino1234");
+            Statement stmt=con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                String Module = rs.getString("ModuleCode");
+                String Mname = rs.getString("ModuleName");
+                ComboModule.addItem(Module);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
     private void ComboModuleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboModuleActionPerformed
         // TODO add your handling code here:
