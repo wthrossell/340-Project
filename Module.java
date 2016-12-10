@@ -168,7 +168,20 @@ public class Module extends javax.swing.JFrame {
 
     
     private void ModuleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModuleButtonActionPerformed
-        
+        String itemText = (String)ComboModule.getSelectedItem( );
+        String lavs = StudentI.getText();
+        if ((itemText.equals("210CE"))){
+                    this.setVisible(false);
+                    new Security(lavs).setVisible(true);
+                }
+        else if(itemText.equals("240CT")){
+                    this.setVisible(false);
+                    new SoftwareModule(lavs).setVisible(true);
+                }
+        else if(itemText.equals("220CT")){
+                    this.setVisible(false);
+                    new Logic(lavs).setVisible(true);
+                }
         // TODO add your handling code here:
     }//GEN-LAST:event_ModuleButtonActionPerformed
 
