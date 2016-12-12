@@ -5,14 +5,32 @@
 </head>
 <body>
     <center>
-        <h1>Test Upload</h1>
+        <h1>Module Upload Area</h1>
         <form method="post" action="uploadServlet" enctype="multipart/form-data">
             <table border="0">
                 <tr>
-                    <td>Test: </td>
-                    <td><input type="text" name="Test" size="50"/></td>
+                    <td>Student First Name: </td>
+                    <td><input type="text" name="firstName" size="50"/></td>
+                </tr>
+                <tr>
+                    <td> Student Last Name: </td>
+                    <td><input type="text" name="lastName" size="50"/></td>
                 </tr>
                 <tr>
-                    <td>TestCode: </td>
-                    <td><input type="text" name="TestCode" size="50"/></td>
+                    <td>Course Code: </td>
+                    <td><input type="text" name="courseCode" size="50"/></td>
                 </tr>
+                <tr>
+                    <td>Template or Cover Sheet: </td>
+                    <td><input type="file" name="pdf" size="50"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Save">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>
