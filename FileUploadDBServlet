@@ -17,17 +17,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 @WebServlet("/uploadServlet")
-@MultipartConfig(maxFileSize = 1023464) 
+@MultipartConfig(maxFileSize = 16177215) 
 public class FileUploadDBServlet extends HttpServlet {
 
- private String dbURL = "jdbc:mysql://localhost:3306/test_db";
+ private String dbURL = "jdbc:mysql://localhost:3306/template_pdf";
  private String dbUser = "root";
  private String dbPass = "tyrone";
 
  protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 
-        String test = request.getParameter("test");
-        String TestCode = request.getParameter("TestCode");
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String courseCode = request.getParameter("courseCode");
         
 
         InputStream inputStream = null; 
@@ -49,20 +50,21 @@ public class FileUploadDBServlet extends HttpServlet {
                 DriverManager.registerDriver(new com.mysql.jdbc.Driver());
                 conn = DriverManager.getConnection(dbURL, dbUser, dbPass);
 
-            String sql = "INSERT INTO pdf (test, code, blob) values (?, ?, ?)";
+            String sql = "INSERT INTO pdf (first_name, last_name, course_code, pdf) values (?, ?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, test);
-            statement.setString(2, code);
+            statement.setString(1, firstName);
+            statement.setString(2, lastName);
+            statement.setString(3, courseCode);
             
  
             if (inputStream != null) {
                 
-            statement.setBlob(3, inputStream);
+            statement.setBlob(4, inputStream);
             }
 
             int row = statement.executeUpdate();
             if (row > 0) {
-                message = "Test Successful";
+                message = "The File Has Been Successfully Uploaded";
             }
             } catch (SQLException ex) {
                 message = "ERROR: " + ex.getMessage();
@@ -75,7 +77,9 @@ public class FileUploadDBServlet extends HttpServlet {
                         ex.printStackTrace();
                     }
                 }
-               
+                request.setAttribute("Message", message);
+
+                getServletContext().getRequestDispatcher("/Message.jsp").forward(request, response);
             }
  }
 }
