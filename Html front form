@@ -9,18 +9,6 @@
         <form method="post" action="uploadServlet" enctype="multipart/form-data">
             <table border="0">
                 <tr>
-                    <td>Student First Name: </td>
-                    <td><input type="text" name="firstName" size="50"/></td>
-                </tr>
-                <tr>
-                    <td> Student Last Name: </td>
-                    <td><input type="text" name="lastName" size="50"/></td>
-                </tr>
-                <tr>
-                    <td>Course Code: </td>
-                    <td><input type="text" name="courseCode" size="50"/></td>
-                </tr>
-                <tr>
                     <td>Template or Cover Sheet: </td>
                     <td><input type="file" name="pdf" size="50"/></td>
                 </tr>
