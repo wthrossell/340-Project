@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package submission.report;
-
+//import libraries
 import JTable;
 import static java.awt.Frame.NORMAL;
 import java.beans.Statement;
@@ -19,12 +19,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Abubakor
  */
-public class Submission_Report extends javax.swing.JFrame {
+public class Submission_Report extends javax.swing.JFrame { //create public class
 
     /**
      * Creates new form Submission_Report
      */
-    public Submission_Report() {
+    public Submission_Report() { // create second public class
         initComponents();
     }
 
@@ -35,6 +35,8 @@ public class Submission_Report extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    
+    //this is where the buttons get created
     private void initComponents() {
 
         jButton_Back = new javax.swing.JButton();
@@ -139,74 +141,75 @@ public class Submission_Report extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//create edit button
     private void jButton_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EditActionPerformed
-        Submission_Edit s = new Submission_Edit();
-        this.setVisible(false);
-        s.setVisible(true);
-        // TODO add your handling code here:
+        Submission_Edit s = new Submission_Edit(); //when button is pressed go to eidt submission pge 
+        this.setVisible(false); //Hide this page
+        s.setVisible(true); // show submission eidt page
+        
     }//GEN-LAST:event_jButton_EditActionPerformed
-
+//create back button
     private void jButton_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BackActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton_BackActionPerformed
-
+//create Jtable
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         
     }//GEN-LAST:event_jTable1MouseClicked
-
+//create download btton
     private void jButton_DownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DownloadActionPerformed
-        MessageFormat header = new MessageFormat("Report of Submissions");
+        MessageFormat header = new MessageFormat("Report of Submissions");//in the word file use this header
         
-        MessageFormat footer = new MessageFormat("Page(0,number,integer)");
+        MessageFormat footer = new MessageFormat("Page(0,number,integer)");//in the word file use this footer
         
-        try {
+        try { 
             
-            jTable1.print(JTable.PrintMode,NORMAL, header, footer);
+            jTable1.print(JTable.PrintMode,NORMAL, header, footer);// do the previous code 
             
                        
-        } catch (java.awt.print.PrinterException e) {
-     System.err.format("Cannot Print Table s%n", e.getMessage());
+        } catch (java.awt.print.PrinterException e) { // if there are any erros 
+     System.err.format("Cannot Print Table s%n", e.getMessage()); // print this message
      
     }//GEN-LAST:event_jButton_DownloadActionPerformed
 
     /**
      * @param args the command line arguments
      */
+       // this is connecting to the database
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        String connectionURL = "jdbc:derby://localhost:1527/ECS";
-        String uName = "Zino";
-        String uPass= "zino1234";
+        String connectionURL = "jdbc:derby://localhost:1527/ECS"; // connect database called ECS
+        String uName = "Zino"; // database has user name Zino
+        String uPass= "zino1234"; // database has password Zino
             
                         try {             
-                    Connection conn = DriverManager.getConnection(connectionURL, uName, uPass);
-                    System.out.println("Connect to database..."); 
+                    Connection conn = DriverManager.getConnection(connectionURL, uName, uPass); // get the connection for the database
+                    System.out.println("Connect to database..."); // display this message
 
-                if (conn != null){ 
-                    Statement st = conn.createStatement();
-                    ResultSet rs=null;
+                if (conn != null){  // if the connection is nul
+                    Statement st = conn.createStatement(); // createa a statement
+                    ResultSet rs=null; // set result as empty or null
 
                     //retrieve the sample records
                     System.out.println("retrieve the sample records");
                     System.out.println("---------------------------------");
-                    String sql = "SELECT * FROM Submissions";
+                    String sql = "SELECT * FROM Submissions"; // get sample records from submissions table
                     rs=st.executeQuery(sql);
                     while(rs.next()){ 
-                        System.out.println(rs.getInt("ID")+"\t"+rs.getString("Grade")+"\t"+
-                                rs.getString("Submission")+"\t"+ rs.getString("Time")+"\t"+ rs.getString("Comment"));
+                        System.out.println(rs.getInt("ID")+"\t"+rs.getString("Grade")+"\t"+ // output the fields in the table
+                                rs.getString("Submission")+"\t"+ rs.getString("Time")+"\t"+ rs.getString("Comment")); // output the fields in the table
                     }
                                 
-                    rs.close();
-                    st.close();
-                    conn.close();
-                    System.out.println("Connection is closed.");
+                    rs.close(); // close the result set
+                    st.close(); // close the statement
+                    conn.close(); // close the connection
+                    System.out.println("Connection is closed."); // print this message
                 } else {
-                  System.out.println("null");  
+                  System.out.println("null");  // or this message 
                 }
          
-            } catch (SQLException ex) {             
-                System.out.println("SQLException error");         
+            } catch (SQLException ex) {       // if there are any errors      
+                System.out.println("SQLException error");         // print this
             }
 
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
