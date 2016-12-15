@@ -1,0 +1,38 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE 
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>File Upload to Database Demo</title>
+</head>
+<body>
+    <center>
+        <h1>File Upload</h1>
+        <form method="post" action="uploadServlet" enctype="multipart/form-data">
+            <table border="0">
+                <tr>   
+                    <td>Comments: </td>
+                    <td><input type="text" name="Comments" size="90"/></td>
+                </tr>
+                <tr>
+                    <td>Date Of Submission: </td>
+                    <td><input type="text" name="Date" size="50"/></td>
+                </tr>
+                <tr>
+                    <td>Upload File: </td>
+                    <td><input type="file" name="photo" size="50"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Save">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+    </body>
+</html>
