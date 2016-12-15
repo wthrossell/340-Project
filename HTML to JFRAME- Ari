@@ -1,22 +1,22 @@
-package Integration;
+package Integration;                                                                                //Creates a package called integration
 
-import com.teamdev.jxbrowser.chromium.Browser;
-import com.teamdev.jxbrowser.chromium.swing.BrowserView;
+import com.teamdev.jxbrowser.chromium.Browser;                                                      //Imports a browser library
+import com.teamdev.jxbrowser.chromium.swing.BrowserView;                                            //Imports a browser library
  
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.*;                                                                               //Imports java swing library
+import java.awt.*;                                                                                  //Imports java library
 
 /**...*/
-public class HTMLtoJFrame {
-public static void main(String[] args) {
-Browser browser = new Browser();
+public class HTMLtoJFrame {                                                                    //Creates a public class called HTMLtoJframe
+public static void main(String[] args) {                                                       
+Browser browser = new Browser();                                                                //Creates a new browser
 BrowserView view = new BrowserView(browser);
  
-JFrame frame = new JFrame();
-frame.add(view, BorderLayout.CENTER);
-frame.setSize(700, 500);
-frame.setVisible(true);
+JFrame frame = new JFrame();                                                                                 //Creates a JFrame
+frame.add(view, BorderLayout.CENTER);                                                   //Creates a border layout and puts it in the middle
+frame.setSize(700, 500);                                                                //Creates a frame with the size of 700 by 500
+frame.setVisible(true);                                                                 //Allows the frame to be seen.                        
  
-browser.loadURL("http://localhost:8080/FileUploadDBServlet/");
+browser.loadURL("http://localhost:8080/FileUploadDBServlet/");                          //This calls the browser with the url linked.
 }
 }
