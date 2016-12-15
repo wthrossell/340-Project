@@ -1,6 +1,6 @@
-package net.codejava.upload;
+package net.codejava.upload;                                                            //Create package called Codejava.upload
  
-import java.io.IOException;
+import java.io.IOException;                                                             //Import Libraries
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,11 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
  
-@WebServlet("/uploadServlet")
-@MultipartConfig(maxFileSize = 16177215)    // upload file's size up to 16MB
-public class FileUploadDBServlet extends HttpServlet {
+@WebServlet("/uploadServlet")                                                         //Calls webservlet which should upload my servlet
+@MultipartConfig(maxFileSize = 16177215)    // upload file's size up to 16MB       //Sets file size up to 16Megabytes
+public class FileUploadDBServlet extends HttpServlet {                             //Creates a public class called FileUploadDBServlet
      
-    // database connection settings
+    // database connection settings (username,password and link)                                         
     private String dbURL = "jdbc:mysql://localhost:3306/uploads?zeroDateTimeBehavior=convertToNull";
     private String dbUser = "root";
     private String dbPass = "1234";
@@ -27,8 +27,8 @@ public class FileUploadDBServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         // gets values of text fields
-        String firstName = request.getParameter("Comments");
-        String lastName = request.getParameter("Date");
+        String firstName = request.getParameter("Comments");                    //Get variable comment
+        String lastName = request.getParameter("Date");                        //Get variable date
         
         
         InputStream inputStream = null; // input stream of the upload file
