@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Coursework;
+package jtabledemo;
 
 /**
  *
@@ -27,18 +27,28 @@ public class show_table extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField_ID = new javax.swing.JTextField();
-        jTextField_Submission = new javax.swing.JTextField();
-        jTextField_Time = new javax.swing.JTextField();
-        jTextField_Grade = new javax.swing.JTextField();
-        jTextField_comment = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jTextField_ID = new javax.swing.JTextField();
+        jTextField_Submission = new javax.swing.JTextField();
+        jTextField_Time = new javax.swing.JTextField();
+        jTextField_Grade = new javax.swing.JTextField();
+        jTextField_comment = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("ID");
+
+        jLabel2.setText("Submission");
+
+        jLabel3.setText("Time");
+
+        jLabel4.setText("Grade");
+
+        jLabel5.setText("Comment");
 
         jTextField_ID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,16 +61,6 @@ public class show_table extends javax.swing.JFrame {
                 jTextField_SubmissionActionPerformed(evt);
             }
         });
-
-        jLabel1.setText("ID");
-
-        jLabel2.setText("Submission");
-
-        jLabel3.setText("Time");
-
-        jLabel4.setText("Grade");
-
-        jLabel5.setText("Comment");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,13 +121,13 @@ public class show_table extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_IDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_IDActionPerformed
-
     private void jTextField_SubmissionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_SubmissionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_SubmissionActionPerformed
+
+    private void jTextField_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_IDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_IDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,4 +176,10 @@ public class show_table extends javax.swing.JFrame {
     public javax.swing.JTextField jTextField_Time;
     public javax.swing.JTextField jTextField_comment;
     // End of variables declaration//GEN-END:variables
+
+    class jTextField_Submision {
+
+        public jTextField_Submision() {
+        }
+    }
 }
